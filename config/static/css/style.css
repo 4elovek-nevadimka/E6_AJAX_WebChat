@@ -1,0 +1,118 @@
+body, html {
+    margin: 0;
+    font-family: 'Courier New', Courier, monospace;
+    height: 100%;
+}
+  
+.bg {
+    height: 100%;
+
+    background: linear-gradient(
+        216deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.8) 50%, rgba(252,176,69,1) 100%);
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navi {
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.navi h1 {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 5px 30px;
+    margin: 0px;
+  }
+
+.navi a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navi a:hover {
+  background-color: rgba(252,176,69,0.8);
+  color: black;
+}
+
+.navi a.active {
+  background-color: rgba(250,100,50,0.5);
+  color: #f2f2f2;
+}
+
+.navi-right {
+  float: right;
+  padding: 0px 14px;
+}
+
+/* .content {
+    height: 100%;
+} */
+
+.center-box {
+    max-width: 700px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.3);
+
+    margin: 10% auto;
+    padding: 10px;
+
+    float: center;
+    color: #f2f2f2;
+}
+
+.center-box h1 {
+    margin: 0px;
+}
+
+.center-box p {
+    line-height: 1.2;
+}
+
+.card {
+    text-align: center;
+}
+
+img {
+    border-radius: 50%;
+    width: 150px;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical
+}
+  
+input[type=submit] {
+    background-color: #02a9eb81;
+    color: #f2f2f2;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #00587a81;
+}
+  
+.container {
+    border-radius: 5px;
+    padding: 20px;
+    overflow: hidden;
+}

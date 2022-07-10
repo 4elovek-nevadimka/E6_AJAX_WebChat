@@ -1,0 +1,10 @@
+{% extends 'default.html' %}
+
+{% block title %} All Users {% endblock title %}
+
+{% block navi %}
+    <a href="{% url 'my_profile' %}">My profile</a>
+    <a href="{% url 'my_rooms' %}">My rooms</a>
+    <a href="{% url 'all_rooms' %}">All rooms</a>
+    <a class="active" href="#">All users</a>
+{% endblock navi %}
