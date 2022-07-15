@@ -1,0 +1,25 @@
+{% extends 'default.html' %}
+
+{% block title %} Web Chat Login {% endblock title %}
+
+{% block content %}
+
+    <form method="post" action="{% url 'sign-up' %}">
+        {% csrf_token %}
+
+        <div style="margin: auto; padding: 10px;">
+            <div align="center">
+                <p>{{ form.username.label_tag }}</p>
+                <p>{{ form.username }}</p>
+                <p>{{ form.password1.label_tag }}</p>
+                <p>{{ form.password1 }}</p>
+                <p>{{ form.password2.label_tag }}</p>
+                <p>{{ form.password2 }}</p>
+                <p>{{ form.errors }}</p>
+                <input type="submit" value="Register">
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}
