@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'channels',
 
     'chat',
+    'sign',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +81,10 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
 }
+
+
+LOGIN_URL = '/sign/sign-in/'
+LOGIN_REDIRECT_URL = '/'
 
 
 # Database
@@ -144,3 +149,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
+ACCOUNT_EMAIL_VERIFICATION = 'none'

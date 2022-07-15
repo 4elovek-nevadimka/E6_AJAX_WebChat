@@ -22,6 +22,7 @@ class Message(models.Model):
 
 
 class Room(models.Model):
+    author = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True)
     participants = models.ManyToManyField(
         UserProfile, related_name='rooms', blank=True)
     messages = models.ManyToManyField(Message, blank=True)
