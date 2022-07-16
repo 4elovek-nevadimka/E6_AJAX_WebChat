@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView, ListView
 
 from chat.models import UserProfile, Room
@@ -9,8 +9,8 @@ class MyProfileView(LoginRequiredMixin, DetailView):
     template_name = 'chat/my_profile.html'
     model = UserProfile
 
-    def get_queryset(self):
-        return super().get_queryset().filter(user=self.request.user)
+    def get_object(self):
+        return get_object_or_404(UserProfile, id=self.request.user.id)
 
 
 class MyRoomsView(LoginRequiredMixin, ListView):

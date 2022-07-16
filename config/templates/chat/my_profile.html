@@ -8,3 +8,9 @@
     <a href="{% url 'all_rooms' %}">All rooms</a>
     <a href="{% url 'all_users' %}">All users</a>
 {% endblock navi %}
+
+{% block content %}
+    <p>{{ userprofile.user.username }}</p>
+    <img src="{{ userprofile.avatar.url }}" alt="can't load image">
+    <p>{{ userprofile.avatar }}</p>
+{% endblock content %}
