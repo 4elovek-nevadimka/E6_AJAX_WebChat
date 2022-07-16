@@ -10,7 +10,6 @@
 {% endblock navi %}
 
 {% block content %}
-    <p>{{ userprofile.user.username }}</p>
     <img src="{{ userprofile.avatar.url }}" alt="can't load image">
-    <p>{{ userprofile.avatar }}</p>
+    <p>{{ userprofile.user.username }}</p>
 {% endblock content %}
