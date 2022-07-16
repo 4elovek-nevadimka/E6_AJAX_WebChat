@@ -28,9 +28,13 @@ class Room(models.Model):
         UserProfile, related_name='rooms', blank=True)
     messages = models.ManyToManyField(Message, blank=True)
 
-    # def save(self, *args, **kwargs):
-    #     self.title = f"Room #{self.id}"
-    #     super(Room, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.title = f"Room #{Room.objects.count() + 1}"
+        super(Room, self).save(*args, **kwargs)
+
+    # def __str__(self):
+    #     return "{}".format(self.pk)
 
     def __str__(self):
-        return "{}".format(self.pk)
+        return self.title
