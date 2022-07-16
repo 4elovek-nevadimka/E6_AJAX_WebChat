@@ -9,8 +9,8 @@ class MyProfileView(LoginRequiredMixin, DetailView):
     template_name = 'chat/my_profile.html'
     model = UserProfile
 
-    def get_object(self):
-        return get_object_or_404(UserProfile, id=self.request.user.id)
+    def get_object(self, **kwargs):
+        return get_object_or_404(UserProfile, user=self.request.user)
 
 
 class MyRoomsView(LoginRequiredMixin, ListView):

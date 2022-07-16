@@ -12,4 +12,7 @@
 {% block content %}
     <img src="{{ userprofile.avatar.url }}" alt="can't load image">
     <p>{{ userprofile.user.username }}</p>
+    <button>
+        <a href="{% url 'sign-out' %}">Log Out</a>
+    </button>
 {% endblock content %}
