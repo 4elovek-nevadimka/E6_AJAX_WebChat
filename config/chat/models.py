@@ -23,9 +23,14 @@ class Message(models.Model):
 
 class Room(models.Model):
     author = models.ForeignKey(UserProfile, on_delete=models.CASCADE, blank=True)
+    title = models.CharField(max_length=128, blank=True)
     participants = models.ManyToManyField(
         UserProfile, related_name='rooms', blank=True)
     messages = models.ManyToManyField(Message, blank=True)
+
+    # def save(self, *args, **kwargs):
+    #     self.title = f"Room #{self.id}"
+    #     super(Room, self).save(*args, **kwargs)
 
     def __str__(self):
         return "{}".format(self.pk)

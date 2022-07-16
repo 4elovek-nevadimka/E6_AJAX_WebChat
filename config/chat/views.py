@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView, ListView
 
-from chat.models import UserProfile, Room
+from .models import UserProfile, Room
 
 
 class MyProfileView(LoginRequiredMixin, DetailView):
@@ -20,7 +20,7 @@ class MyRoomsView(LoginRequiredMixin, ListView):
     ordering = ['-id']
 
     def get_queryset(self):
-        return super().get_queryset().filter(author=self.request.user)
+        return super().get_queryset().filter(author__user=self.request.user)
 
 
 class AllRoomsView(LoginRequiredMixin, ListView):
@@ -35,6 +35,9 @@ class AllUsersView(LoginRequiredMixin, ListView):
     model = UserProfile
     context_object_name = 'all_users_list'
     ordering = ['-id']
+
+    def get_queryset(self):
+        return super().get_queryset().exclude(user=self.request.user)
 
 
 def index(request):

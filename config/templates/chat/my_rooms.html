@@ -8,3 +8,14 @@
     <a href="{% url 'all_rooms' %}">All rooms</a>
     <a href="{% url 'all_users' %}">All users</a>
 {% endblock navi %}
+
+{% block content %}
+    {% if my_rooms_list %}
+        {{ my_rooms_list.count }}
+        {% for room in my_rooms_list %}
+            <p>{{ room.title }}</p>
+        {% endfor %}
+    {% else %}
+        <h2>No Rooms yet...</h2>
+    {% endif %}
+{% endblock content %}
