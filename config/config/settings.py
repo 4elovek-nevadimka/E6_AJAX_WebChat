@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     'channels',
 
-    'chat',
+    'chat.apps.ChatConfig',
     'sign',
 ]
 
