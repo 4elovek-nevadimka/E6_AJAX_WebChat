@@ -26,6 +26,7 @@ def go_to_board(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('', go_to_board),
     path('chat/', include('chat.urls')),
     path('sign/', include('sign.urls')),

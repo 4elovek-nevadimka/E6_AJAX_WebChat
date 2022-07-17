@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'channels',
+    'rest_framework',
 
     'chat.apps.ChatConfig',
     'sign',
