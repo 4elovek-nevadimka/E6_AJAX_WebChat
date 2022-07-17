@@ -1,4 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import DetailView, ListView
 
@@ -48,3 +49,11 @@ def room(request, room_name):
     return render(request, 'chat/room.html', {
         'room_name': room_name
     })
+
+
+def update_firstname(request):
+    if request.method == 'POST':
+        userprofile = UserProfile.objects.get(pk=request.POST['user_profile_id'])
+        userprofile.user.first_name = request.POST['first_name']
+        userprofile.user.save()
+    return HttpResponse('update successful')

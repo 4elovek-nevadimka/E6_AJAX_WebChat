@@ -1,4 +1,5 @@
 {% extends 'default.html' %}
+{% load static %}
 
 {% block title %} My Profile {% endblock title %}
 
@@ -12,7 +13,40 @@
 {% block content %}
     <img src="{{ userprofile.avatar.url }}" alt="can't load image">
     <p>{{ userprofile.user.username }}</p>
-    <button>
-        <a href="{% url 'sign-out' %}">Log Out</a>
-    </button>
+    <input class="input" type="text" placeholder="Your First Name..." id="user-firstname-input">
+    <p>
+        {{ userprofile.user.firstname }}
+        <button class="btn j-btn-update">Обновить имя</button>
+    </p>
+    <p>
+        <button>
+            <a href="{% url 'sign-out' %}">Log Out</a>
+        </button>
+    </p>
+</form>
 {% endblock content %}
+
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        const inputFirstName = document.getElementById("user-firstname-input");
+        inputFirstName.value = '{{ userprofile.user.first_name }}';
+
+        const btnUpdate = document.querySelector('.j-btn-update');
+
+        btnUpdate.addEventListener('click', () => {
+            $.ajax({
+                url: '/chat/update_firstname/',
+                data: {
+                    'first_name': inputFirstName.value,
+                    'user_profile_id': '{{ userprofile.id }}',
+                    'csrfmiddlewaretoken': '{{ csrf_token }}',
+                },
+                type: 'POST'
+              }).done(function(response){
+                console.log(response);
+            });
+        });
+    </script>
+{% endblock %}
