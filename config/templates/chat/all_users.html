@@ -11,9 +11,22 @@
 
 {% block content %}
     {% if all_users_list %}
-        {{ all_users_list.count }}
         {% for user_profile in all_users_list %}
-            <p>{{ user_profile.user.username }}</p>
+            <div class="user-row">
+                <div class="user-info">
+                    <div class="foo">
+                        <img class="user-avatar-small" src="{{ user_profile.avatar.url }}" alt="can't load image">
+                    </div>
+                    <div class="foo">
+                        {{ user_profile.user.username }}
+                    </div>
+                </div>
+                <div class="room-button">
+                    <button>
+                        <a href="{% url 'room' user_profile.id %}">Войти в чат</a>
+                    </button>
+                </div>
+            </div>
         {% endfor %}
     {% else %}
         <h2>No Users yet...</h2>

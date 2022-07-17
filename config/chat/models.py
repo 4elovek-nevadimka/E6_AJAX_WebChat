@@ -33,8 +33,5 @@ class Room(models.Model):
             self.title = f"Room #{Room.objects.count() + 1}"
         super(Room, self).save(*args, **kwargs)
 
-    # def __str__(self):
-    #     return "{}".format(self.pk)
-
     def __str__(self):
         return self.title

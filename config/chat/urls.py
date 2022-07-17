@@ -8,7 +8,7 @@ urlpatterns = [
     # path('', views.index, name='index'),
     # path('<str:room_name>/', views.room, name='room'),
 
-    path('<str:room_name>/', views.chat_room, name='room'),
+    path('<int:room_id>/', views.chat_room, name='room'),
 
     path('account/my-profile/', MyProfileView.as_view(), name='my_profile'),
     path('account/my-rooms/', MyRoomsView.as_view(), name='my_rooms'),

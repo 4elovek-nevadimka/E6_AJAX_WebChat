@@ -39,7 +39,7 @@
         <small class="has-text-grey-light">Your username: {{ username }}</small>
     </section>
 
-    {{ room_name|json_script:"json-roomname" }}
+    {{ room_id|json_script:"json-roomid" }}
     {{ username|json_script:"json-username" }}
 
 {% endblock content %}
@@ -54,14 +54,14 @@
 
         scrollToBottom();
 
-        const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
+        const roomId = JSON.parse(document.getElementById('json-roomid').textContent);
         const userName = JSON.parse(document.getElementById('json-username').textContent);
 
         const chatSocket = new WebSocket(
             'ws://'
             + window.location.host
             + '/ws/chat/'
-            + roomName
+            + roomId
             + '/'
         );
 
@@ -90,7 +90,7 @@
             chatSocket.send(JSON.stringify({
                 'message': message,
                 'username': userName,
-                'room': roomName
+                'room_id': roomId
             }));
 
             messageInputDom.value = '';

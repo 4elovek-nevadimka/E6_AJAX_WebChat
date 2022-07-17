@@ -21,7 +21,7 @@ from django.urls import path, include
 
 
 def go_to_board(request):
-    return redirect('/chat/my-profile/')
+    return redirect('/chat/account/my-profile/')
 
 
 urlpatterns = [

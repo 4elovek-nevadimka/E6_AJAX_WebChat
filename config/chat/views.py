@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
@@ -51,12 +52,12 @@ def room(request, room_name):
     })
 
 
-def chat_room(request, room_name):
-    # cur_room = Room.objects.filter(pk=room_id).first()
+@login_required
+def chat_room(request, room_id):
+    # cur_room = Room.objects.get(pk=room_id)
     username = request.user.username
 
-    return render(request, 'chat/chat-room.html',
-                  {'room_name': room_name, 'username': username, })
+    return render(request, 'chat/chat-room.html', {'room_id': room_id, 'username': username, })
 
     # return render(request, 'chat/chat-room.html',
     #               {'room_name': room_name, 'username': username, 'messages': cur_room.messages[0:25]})

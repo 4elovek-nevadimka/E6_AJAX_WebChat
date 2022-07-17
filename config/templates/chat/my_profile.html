@@ -11,18 +11,19 @@
 {% endblock navi %}
 
 {% block content %}
-    <img src="{{ userprofile.avatar.url }}" alt="can't load image">
-    <p>{{ userprofile.user.username }}</p>
-    <input class="input" type="text" placeholder="Your First Name..." id="user-firstname-input">
-    <p>
-        {{ userprofile.user.firstname }}
-        <button class="btn j-btn-update">Обновить имя</button>
-    </p>
-    <p>
+    <div class="center-card">
+        <img class="user-avatar-big" src="{{ userprofile.avatar.url }}" alt="can't load image">
+        <p>{{ userprofile.user.username }}</p>
+        <input class="input" type="text" placeholder="Your First Name..." id="user-firstname-input">
+        <p>
+            <button class="btn j-btn-update">Обновить имя</button>
+        </p>
+    </div>
+    <div>
         <button>
             <a href="{% url 'sign-out' %}">Log Out</a>
         </button>
-    </p>
+    </div>
 {% endblock content %}
 
 {% block scripts %}
