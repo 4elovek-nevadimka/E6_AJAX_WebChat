@@ -13,3 +13,4 @@ TODO:
 9. 
 10. Add button LogOut
 11. Login form like Django Admin
+12. Связи для OneToMany надо для Room-> participants, Message
