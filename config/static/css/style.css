@@ -73,8 +73,8 @@ body, html {
     line-height: 1.2;
 }
 
-.card {
-    text-align: center;
+.button.is-info {
+    float: right;
 }
 
 img {
@@ -86,4 +86,22 @@ img {
     border-radius: 5px;
     padding: 20px;
     overflow: hidden;
+}
+
+.room-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(1, 1, 0, 0.1);
+  padding: 10px;
+  margin: 5px;
+  height: 30px;
+}
+
+.room-name {
+
+}
+
+.room-button {
+
 }

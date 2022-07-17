@@ -11,9 +11,17 @@
 
 {% block content %}
     {% if all_rooms_list %}
-        {{ all_rooms_list.count }}
         {% for room in all_rooms_list %}
-            <p>{{ room.title }}</p>
+            <div class="room-row">
+                <div class="room-name">
+                    <p>{{ room.title }}</p>
+                </div>
+                <div class="room-button">
+                    <button>
+                        <a href="{% url 'room' room.title %}">Войти в чат</a>
+                    </button>
+                </div>
+            </div>
         {% endfor %}
     {% else %}
         <h2>No Rooms yet...</h2>
