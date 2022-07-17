@@ -2,8 +2,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import DetailView, ListView
+from django.views.generic import DetailView, ListView, CreateView
 
+from .forms import RoomForm
 from .models import UserProfile, Room
 
 
@@ -42,14 +43,13 @@ class AllUsersView(LoginRequiredMixin, ListView):
         return super().get_queryset().exclude(user=self.request.user)
 
 
-def index(request):
-    return render(request, 'chat/index.html')
+class RoomCreateView(LoginRequiredMixin, CreateView):
+    form_class = RoomForm
+    template_name = 'chat/room_create.html'
 
-
-def room(request, room_name):
-    return render(request, 'chat/room.html', {
-        'room_name': room_name
-    })
+    def form_valid(self, form):
+        form.instance.author = UserProfile.objects.filter(user=self.request.user).first()
+        return super().form_valid(form)
 
 
 @login_required

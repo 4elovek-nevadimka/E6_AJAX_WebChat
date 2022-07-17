@@ -29,9 +29,12 @@ class Room(models.Model):
     messages = models.ManyToManyField(Message, blank=True)
 
     def save(self, *args, **kwargs):
-        if not self.id:
-            self.title = f"Room #{Room.objects.count() + 1}"
+        # if not self.id:
+        #     self.title = f"Room #{Room.objects.count() + 1}"
         super(Room, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return f'/chat/{self.id}'
 
     def __str__(self):
         return self.title

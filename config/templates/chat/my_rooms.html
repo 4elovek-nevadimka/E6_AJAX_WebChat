@@ -10,6 +10,10 @@
 {% endblock navi %}
 
 {% block content %}
+    <button>
+        <a href="{% url 'room_create' %}">Новый чат</a>
+    </button>
+    <br>
     {% if my_rooms_list %}
         {% for room in my_rooms_list %}
             <div class="room-row">
