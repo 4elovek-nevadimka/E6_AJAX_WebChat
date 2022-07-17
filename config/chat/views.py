@@ -51,6 +51,17 @@ def room(request, room_name):
     })
 
 
+def chat_room(request, room_name):
+    # cur_room = Room.objects.filter(pk=room_id).first()
+    username = request.user.username
+
+    return render(request, 'chat/chat-room.html',
+                  {'room_name': room_name, 'username': username, })
+
+    # return render(request, 'chat/chat-room.html',
+    #               {'room_name': room_name, 'username': username, 'messages': cur_room.messages[0:25]})
+
+
 def update_firstname(request):
     if request.method == 'POST':
         userprofile = UserProfile.objects.get(pk=request.POST['user_profile_id'])
